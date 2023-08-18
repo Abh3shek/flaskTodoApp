@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sign In
+{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center;" class="mt-5">Sign In to ToDo App</h1>
+<form method='POST' class="mt-4 signInForm">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" placeholder="Enter your password" class="form-control" id="password">
+    </div>
+    <button type="submit" class="btn btn-dark">Sign in</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid updateTaskForm" action="/update/{{updateTask.sr_no}}" method="POST">
+    <h5 class="homeHeader">Edit Your Task Here</h5>
+    <form method='POST' class="mt-4 taskForm">
+      <div class="mb-3">
+          <label for="taskTitle" class="form-label">Task Title</label>
+          <input type="text" class="form-control" name="taskTitle" id="taskTitle" placeholder="Kindly provide a task title..."
+          value="{{updateTask.taskTitle}}">
+        </div>
+        <div class="mb-3">
+          <label for="taskDescription" class="form-label">Task Description</label>
+          <input type="text" class="form-control" name="taskDescription" id="taskDescription" placeholder="Kindly provide suitable description..."
+          value="{{updateTask.taskDescription}}">
+      </div>
+      <button type="submit" class="btn btn-dark">Update Task</button>
+    </form>
+</div>
+{% endblock content %}

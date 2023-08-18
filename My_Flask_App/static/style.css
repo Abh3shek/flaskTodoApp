@@ -1,0 +1,42 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.contentBlock{
+  height: 100vh;
+}
+
+.signInForm{
+  max-width: 50%;
+  margin: 5% auto;
+}
+
+.signUpForm{
+  max-width: 50%;
+  margin: 5% auto;
+}
+
+.alert{
+  max-width: 50%;
+  margin: auto auto;
+}
+
+.homeHeader{
+  text-align: center;
+}
+
+.taskTable{
+  max-width: 100%;
+  text-align: center;
+}
+
+.taskForm{
+  max-width: 70%;
+  margin: 5% auto;
+}
+
+.updateTaskForm{
+  max-width: 70%;
+  margin: 5% auto;
+}

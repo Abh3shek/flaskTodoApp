@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid homeHeader">
+  <h1>Welcome {{user.firstName}} {{user.lastName}}</h1>
+</div>
+
+<div class="container-fluid taskForm">
+  <form method='POST' class="mt-4 taskForm">
+    <div class="mb-3">
+        <label for="taskTitle" class="form-label">Task Title</label>
+        <input type="text" class="form-control" name="taskTitle" id="taskTitle" placeholder="Kindly provide a task title..."
+        aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="taskDescription" class="form-label">Task Description</label>
+        <textarea class="form-control" placeholder="Kindly provide suitable description..." name="taskDescription" id="taskDescription" style="height: 100px"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark">Add Task</button>
+  </form>
+</div>
+
+<div class="container-fluid taskTable">
+  {% if user.notes|length == 0 %}
+    <div class="alert alert-dark" role="alert">
+      No tasks to display
+    </div>
+  {% else %}
+    <h5 class="mb-5">Task's pinned by you are listed below</h5>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Creation Time</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in user.notes %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{task.taskTitle}}</td>
+            <td>{{task.taskDescription}}</td>
+            <td>{{task.issue}}</td>
+            <td>
+              <a href="/update/{{task.sr_no}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+              <a href="/delete/{{task.sr_no}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  {% endif %}
+</div>
+{% endblock content %}
